@@ -1,0 +1,40 @@
+<div class="container">
+  <!-- <label>Server Name</label>
+  <input
+    type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)"
+  /> -->
+  <p>Please Enter your name</p>
+  <input type="text" class="form-control" [(ngModel)]="userName" />
+  <p>{{ userName }}</p>
+  <button
+    class="btn btn-success"
+    [disabled]="userName === ''"
+    (click)="userName = ''"
+  >
+    ADD USER NAME
+  </button>
+  <br />
+  <p>Name is {{ userName }}</p>
+  <input type="text" class="form-control" [(ngModel)]="serverName" />
+  <!-- <p>{{ serverName }}</p> -->
+  <br />
+  <button
+    class="btn btn-primary"
+    [disabled]="!allowServer"
+    (click)="onCreateServer()"
+  >
+    add servers
+  </button>
+  <button
+    class="btn btn-danger"
+    [disabled]="!allowServer"
+    (click)="onDeleteServer()"
+  >
+    remove servers
+  </button>
+  <hr />
+  <p>{{ serverCreationStatus }}</p>
+  <app-server></app-server>
+</div>
