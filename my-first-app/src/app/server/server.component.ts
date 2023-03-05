@@ -8,12 +8,17 @@ import { Component } from '@angular/core';
       .online {
         color: white;
       }
+      .count {
+        color: white;
+      }
     `,
   ],
 })
 export class ServerComponent {
   serverId = 101;
   serverStatus = 'offline';
+  isDisable = false;
+  count = [];
 
   constructor() {
     this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
@@ -25,5 +30,11 @@ export class ServerComponent {
 
   getColor() {
     return this.serverStatus === 'online' ? 'green' : 'red';
+  }
+
+  toggle($event: Event) {
+    this.isDisable = !this.isDisable;
+    // this.count.push(this.count.length + 1);
+    this.count.push(new Date());
   }
 }

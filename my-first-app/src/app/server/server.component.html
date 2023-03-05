@@ -4,3 +4,15 @@
 >
   Server with ID {{ serverId }} is {{ getServerStatus() }}
 </p>
+
+<div class="container">
+  <button class="btn btn-primary" (click)="toggle($event)">toggle</button>
+  <p *ngIf="isDisable">Secret Password = tuna</p>
+  <p
+    *ngFor="let c of count; let i = index"
+    [ngClass]="{ count: i >= 4 }"
+    [ngStyle]="{ 'background-color': i >= 4 ? 'blue' : 'transparent' }"
+  >
+    {{ c }}
+  </p>
+</div>
